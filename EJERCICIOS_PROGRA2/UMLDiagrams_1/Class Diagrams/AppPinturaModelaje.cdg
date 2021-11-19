@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Contrato" package="CapaEntidad" visibility="public" xPosition="117.0" yPosition="16.0">
+      <Fields>
+        <Field name="numContrato" type="int" visibility="private" isStatic="true"/>
+        <Field name="arrayPintores" type="ArrayList&lt;Pintor&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addPintor" returnType="void" visibility="public">
+          <Argument type="Pintor" name="pintor"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pared" package="CapaEntidad" visibility="public" xPosition="17.0" yPosition="274.0">
+      <Fields>
+        <Field name="numPared" type="int" visibility="private" isStatic="true"/>
+        <Field name="ancho" type="int" visibility="private"/>
+        <Field name="alto" type="int" visibility="private"/>
+        <Field name="color" type="Pintura" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="anchop"/>
+          <Argument type="int" name="altop"/>
+          <Argument type="Pintura" name="colorp"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="areaCubrir" returnType="double" visibility="public"/>
+        <Method name="cantidadGalonesGastar" returnType="double" visibility="public"/>
+        <Method name="costoPared" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNumPared" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="setNumPared" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="numPared"/>
+        </Method>
+        <Method name="getAncho" returnType="int" visibility="public"/>
+        <Method name="setAncho" returnType="void" visibility="public">
+          <Argument type="int" name="ancho"/>
+        </Method>
+        <Method name="getAlto" returnType="int" visibility="public"/>
+        <Method name="setAlto" returnType="void" visibility="public">
+          <Argument type="int" name="alto"/>
+        </Method>
+        <Method name="getColor" returnType="Pintura" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="Pintura" name="color"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pintor" package="CapaEntidad" visibility="public" xPosition="543.0" yPosition="16.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="codPintor" type="String" visibility="private"/>
+        <Field name="tarifa" type="double" visibility="private"/>
+        <Field name="cantidadParedes" type="ArrayList&lt;Pared&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigop"/>
+          <Argument type="String" name="nombrep"/>
+          <Argument type="double" name="tarifap"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarPared" returnType="void" visibility="public">
+          <Argument type="Pared" name="pared"/>
+        </Method>
+        <Method name="areaTotalPintar" returnType="double" visibility="public"/>
+        <Method name="costoManoObra" returnType="double" visibility="public"/>
+        <Method name="costoTotalPintura" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getCodPintor" returnType="String" visibility="public"/>
+        <Method name="setCodPintor" returnType="void" visibility="public">
+          <Argument type="String" name="codPintor"/>
+        </Method>
+        <Method name="getTarifa" returnType="double" visibility="public"/>
+        <Method name="setTarifa" returnType="void" visibility="public">
+          <Argument type="double" name="tarifa"/>
+        </Method>
+        <Method name="getCantidadParedes" returnType="ArrayList&lt;Pared&gt;" visibility="public"/>
+        <Method name="setCantidadParedes" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Pared&gt;" name="cantidadParedes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pintura" package="CapaEntidad" visibility="public" xPosition="326.0" yPosition="305.0">
+      <Fields>
+        <Field name="codPintura" type="String" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="precioGalon" type="double" visibility="private"/>
+        <Field name="cantCubre" type="double" visibility="private"/>
+        <Field name="arrayTinte" type="ArrayList&lt;Tinte&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codPinturap"/>
+          <Argument type="String" name="colorp"/>
+          <Argument type="double" name="preciop"/>
+          <Argument type="double" name="cantCubrep"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="formulacionPintura" returnType="void" visibility="public">
+          <Argument type="Tinte" name="tintep"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCodPintura" returnType="String" visibility="public"/>
+        <Method name="setCodPintura" returnType="void" visibility="public">
+          <Argument type="String" name="codPintura"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getPrecioGalon" returnType="double" visibility="public"/>
+        <Method name="setPrecioGalon" returnType="void" visibility="public">
+          <Argument type="double" name="precioGalon"/>
+        </Method>
+        <Method name="getCantCubre" returnType="double" visibility="public"/>
+        <Method name="setCantCubre" returnType="void" visibility="public">
+          <Argument type="double" name="cantCubre"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tinte" package="CapaEntidad" visibility="public" xPosition="873.0" yPosition="450.0">
+      <Fields>
+        <Field name="codTinte" type="String" visibility="private"/>
+        <Field name="cantGalon" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codTintep"/>
+          <Argument type="double" name="cantGalonp"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCodTinte" returnType="String" visibility="public"/>
+        <Method name="setCodTinte" returnType="void" visibility="public">
+          <Argument type="String" name="codTinte"/>
+        </Method>
+        <Method name="getCantGalon" returnType="double" visibility="public"/>
+        <Method name="setCantGalon" returnType="void" visibility="public">
+          <Argument type="float" name="cantGalon"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="CapaEntidad.Pintor" target="CapaEntidad.Pared" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CapaEntidad.Pintura" target="CapaEntidad.Tinte" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="color" source="CapaEntidad.Pared" target="CapaEntidad.Pintura" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arrayPintores" source="CapaEntidad.Contrato" target="CapaEntidad.Pintor" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Pintor&gt;"/>
+    <UseRelation source="CapaEntidad.Pared" target="CapaEntidad.Pintura" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arrayTinte" source="CapaEntidad.Pintura" target="CapaEntidad.Tinte" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Tinte&gt;"/>
+    <HasRelation name="cantidadParedes" source="CapaEntidad.Pintor" target="CapaEntidad.Pared" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Pared&gt;"/>
+    <UseRelation source="CapaEntidad.Contrato" target="CapaEntidad.Pintor" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

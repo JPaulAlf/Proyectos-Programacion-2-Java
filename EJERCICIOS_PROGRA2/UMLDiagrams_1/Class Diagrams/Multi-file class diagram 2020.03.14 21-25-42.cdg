@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Usuario" package="Capa_Logica_Negocios" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="correo" type="String" visibility="protected"/>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="paisOrigen" type="Usuario_PaisOrigen" visibility="protected"/>
+        <Field name="contrasenna" type="String" visibility="protected"/>
+        <Field name="tarjeta" type="Usuario_Tarjeta" visibility="protected"/>
+        <Field name="arrayPerfiles" type="ArrayList&lt;Usuario_Perfil&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="Usuario_Tarjeta" name="tarjeta"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+        <Method name="setCorreo" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="getContrasenna" returnType="String" visibility="public"/>
+        <Method name="setContrasenna" returnType="void" visibility="public">
+          <Argument type="String" name="contrasenna"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getPaisOrigen" returnType="Usuario_PaisOrigen" visibility="public"/>
+        <Method name="setPaisOrigen" returnType="void" visibility="public">
+          <Argument type="Usuario_PaisOrigen" name="paisOrigen"/>
+        </Method>
+        <Method name="getTarjeta" returnType="Usuario_Tarjeta" visibility="public"/>
+        <Method name="setTarjeta" returnType="void" visibility="public">
+          <Argument type="Usuario_Tarjeta" name="tarjeta"/>
+        </Method>
+        <Method name="costoInscripcion" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="agregarPerfil" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="muestraPerfiles" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsuarioAdministrativo" package="Capa_Logica_Negocios" visibility="public" xPosition="637.0" yPosition="606.0">
+      <Fields>
+        <Field name="COSTO_INSCRIPCION" type="double" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="agregarPerfil" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="muestraPerfiles" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsuarioCorporativo" package="Capa_Logica_Negocios" visibility="public" xPosition="863.0" yPosition="94.0">
+      <Fields>
+        <Field name="COSTO_INSCRIPCION" type="double" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="Usuario_Tarjeta" name="tarjeta"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="agregarPerfil" returnType="void" visibility="public">
+          <Argument type="String" name="nombrel"/>
+        </Method>
+        <Method name="muestraPerfiles" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsuarioResidencial" package="Capa_Logica_Negocios" visibility="public" xPosition="851.0" yPosition="310.0">
+      <Fields>
+        <Field name="COSTO_INSCRIPCION" type="double" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="Usuario_Tarjeta" name="tarjeta"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="agregarPerfil" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="muestraPerfiles" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Capa_Logica_Negocios.UsuarioCorporativo" target="Capa_Logica_Negocios.Usuario"/>
+    <IsRelation name="is" source="Capa_Logica_Negocios.UsuarioResidencial" target="Capa_Logica_Negocios.Usuario"/>
+    <UseRelation source="Capa_Logica_Negocios.Usuario" target="Capa_Logica_Negocios.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Capa_Logica_Negocios.UsuarioAdministrativo" target="Capa_Logica_Negocios.Usuario"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

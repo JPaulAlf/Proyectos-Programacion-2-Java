@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Cuadrado" package="capaLogica" visibility="public" xPosition="47.0" yPosition="308.0">
+      <Fields>
+        <Field name="lado" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreFig"/>
+          <Argument type="char" name="c"/>
+          <Argument type="double" name="lado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="perimetro" returnType="double" visibility="public"/>
+        <Method name="area" returnType="double" visibility="public"/>
+        <Method name="dibujo" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setLado" returnType="void" visibility="public">
+          <Argument type="double" name="ladop"/>
+        </Method>
+        <Method name="getLado" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Figura" package="capaLogica" visibility="public" isAbstract="true" xPosition="334.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombreFigura" type="String" visibility="private"/>
+        <Field name="caracter" type="char" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreFigura"/>
+          <Argument type="char" name="caracter"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="area" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="perimetro" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="dibujo" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setCaracter" returnType="void" visibility="public">
+          <Argument type="char" name="caracter"/>
+        </Method>
+        <Method name="getNombreFigura" returnType="String" visibility="public"/>
+        <Method name="setNombreFigura" returnType="void" visibility="public">
+          <Argument type="String" name="nombreFigura"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Rectangulo" package="capaLogica" visibility="public" isFinal="true" xPosition="388.0" yPosition="308.0">
+      <Fields>
+        <Field name="largo" type="double" visibility="private"/>
+        <Field name="ancho" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreFig"/>
+          <Argument type="char" name="caracter"/>
+          <Argument type="double" name="largo"/>
+          <Argument type="double" name="ancho"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="area" returnType="double" visibility="public"/>
+        <Method name="perimetro" returnType="double" visibility="public"/>
+        <Method name="dibujo" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getLargo" returnType="double" visibility="public"/>
+        <Method name="setLargo" returnType="void" visibility="public">
+          <Argument type="double" name="largo"/>
+        </Method>
+        <Method name="getAncho" returnType="double" visibility="public"/>
+        <Method name="setAncho" returnType="void" visibility="public">
+          <Argument type="double" name="ancho"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Triangulo" package="capaLogica" visibility="public" xPosition="746.0" yPosition="75.0">
+      <Fields>
+        <Field name="lado" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreFig"/>
+          <Argument type="char" name="c"/>
+          <Argument type="int" name="base"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="hipotenusa" returnType="double" visibility="public"/>
+        <Method name="perimetro" returnType="double" visibility="public"/>
+        <Method name="area" returnType="double" visibility="public"/>
+        <Method name="dibujo" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getLado" returnType="int" visibility="public"/>
+        <Method name="setLado" returnType="void" visibility="public">
+          <Argument type="int" name="lado"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="capaLogica.Rectangulo" target="capaLogica.Figura"/>
+    <IsRelation name="is" source="capaLogica.Cuadrado" target="capaLogica.Figura"/>
+    <IsRelation name="is" source="capaLogica.Triangulo" target="capaLogica.Figura"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

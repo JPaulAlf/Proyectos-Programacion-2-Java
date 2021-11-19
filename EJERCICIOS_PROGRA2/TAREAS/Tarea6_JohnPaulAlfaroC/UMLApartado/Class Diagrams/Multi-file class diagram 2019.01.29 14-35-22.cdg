@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Abono" package="entidades" visibility="public" xPosition="939.0" yPosition="430.0">
+      <Fields>
+        <Field name="numeroAbono" type="int" visibility="private"/>
+        <Field name="montoAbono" type="double" visibility="private"/>
+        <Field name="fecha" type="LocalDate" visibility="private"/>
+        <Field name="tipo" type="TipoPago" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numeroAbono"/>
+          <Argument type="double" name="montoAbono"/>
+          <Argument type="TipoPago" name="tipo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumeroAbono" returnType="int" visibility="public"/>
+        <Method name="setNumeroAbono" returnType="void" visibility="public">
+          <Argument type="int" name="numeroAbono"/>
+        </Method>
+        <Method name="getMontoAbono" returnType="double" visibility="public"/>
+        <Method name="setMontoAbono" returnType="void" visibility="public">
+          <Argument type="double" name="montoAbono"/>
+        </Method>
+        <Method name="getFecha" returnType="LocalDate" visibility="public"/>
+        <Method name="setFecha" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="getTipo" returnType="TipoPago" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="TipoPago" name="tipo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Apartado" package="entidades" visibility="public" xPosition="488.0" yPosition="192.0">
+      <Fields>
+        <Field name="contadorApartado" type="int" visibility="private" isStatic="true"/>
+        <Field name="listaArticulos" type="List&lt;Articulo&gt;" visibility="private"/>
+        <Field name="listaAbonos" type="List&lt;Abono&gt;" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="numero" type="int" visibility="private"/>
+        <Field name="saldo" type="double" visibility="private"/>
+        <Field name="cantidadAbonos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarArticulo" returnType="void" visibility="public">
+          <Argument type="Articulo" name="pArticulo"/>
+        </Method>
+        <Method name="registrarAbono" returnType="String" visibility="public">
+          <Argument type="double" name="pMontoAbono"/>
+          <Argument type="TipoPago" name="oTipo"/>
+        </Method>
+        <Method name="getCliente" returnType="Cliente" visibility="public"/>
+        <Method name="setCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="getSaldo" returnType="double" visibility="public"/>
+        <Method name="getCantidadAbonos" returnType="int" visibility="public"/>
+        <Method name="getListaArticulos" returnType="List&lt;Articulo&gt;" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Articulo" package="entidades" visibility="public" xPosition="28.0" yPosition="468.0">
+      <Fields>
+        <Field name="codigo" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="descripcion"/>
+          <Argument type="double" name="precio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodigo" returnType="String" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+        <Method name="setPrecio" returnType="void" visibility="public">
+          <Argument type="double" name="precio"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="entidades" visibility="public" xPosition="47.0" yPosition="107.0">
+      <Fields>
+        <Field name="identificacion" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="identificacion"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdentificacion" returnType="String" visibility="public"/>
+        <Method name="setIdentificacion" returnType="void" visibility="public">
+          <Argument type="String" name="identificacion"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="TipoPago" package="entidades" visibility="public" xPosition="1045.0" yPosition="192.0">
+      <Literals>
+        <Literal name="EFECTIVO"/>
+        <Literal name="TARJETA"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="listaArticulos" source="entidades.Apartado" target="entidades.Articulo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Articulo&gt;"/>
+    <UseRelation source="entidades.Apartado" target="entidades.TipoPago" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaAbonos" source="entidades.Apartado" target="entidades.Abono" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="cliente" source="entidades.Apartado" target="entidades.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tipo" source="entidades.Abono" target="entidades.TipoPago" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

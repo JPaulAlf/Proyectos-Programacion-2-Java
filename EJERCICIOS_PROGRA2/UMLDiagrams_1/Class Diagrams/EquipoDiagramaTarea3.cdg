@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Entrenador" package="CapaLogica" visibility="public" xPosition="361.0" yPosition="173.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="salarioBase" type="int" visibility="private"/>
+        <Field name="porcentajeBonificacion" type="float" visibility="private"/>
+        <Field name="nacionalidad" type="Nacionalidad" visibility="private"/>
+        <Field name="equipo" type="Equipo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="salarioBase"/>
+          <Argument type="float" name="porcentajeBonificacion"/>
+          <Argument type="Nacionalidad" name="nacionalidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="bonificacionCategoriaEquipo" returnType="double" visibility="public"/>
+        <Method name="bonificacionExtranjero" returnType="double" visibility="public"/>
+        <Method name="bonificacionEquipoGanes" returnType="int" visibility="public"/>
+        <Method name="calculoSalarioTotal" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getSalarioBase" returnType="int" visibility="public"/>
+        <Method name="setSalarioBase" returnType="void" visibility="public">
+          <Argument type="int" name="salarioBase"/>
+        </Method>
+        <Method name="getPorcentajeBonificacion" returnType="float" visibility="public"/>
+        <Method name="setPorcentajeBonificacion" returnType="void" visibility="public">
+          <Argument type="float" name="porcentajeBonificacion"/>
+        </Method>
+        <Method name="getNacionalidad" returnType="Nacionalidad" visibility="public"/>
+        <Method name="setNacionalidad" returnType="void" visibility="public">
+          <Argument type="Nacionalidad" name="nacionalidad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Equipo" package="CapaLogica" visibility="public" xPosition="30.0" yPosition="-134.0">
+      <Fields>
+        <Field name="cont" type="int" visibility="private" isStatic="true"/>
+        <Field name="codigoEquipo" type="String" visibility="private"/>
+        <Field name="partidosJugados" type="int" visibility="private"/>
+        <Field name="partidosGanados" type="int" visibility="private"/>
+        <Field name="partidosPerdidos" type="int" visibility="private"/>
+        <Field name="golesFavor" type="int" visibility="private"/>
+        <Field name="golesContra" type="int" visibility="private"/>
+        <Field name="array" type="ArrayList&lt;Jugador&gt;" visibility="private"/>
+        <Field name="entrenador" type="Entrenador" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigoEquipo"/>
+          <Argument type="int" name="partidosJugados"/>
+          <Argument type="int" name="partidosGanados"/>
+          <Argument type="int" name="partidosPerdidos"/>
+          <Argument type="int" name="golesFavor"/>
+          <Argument type="int" name="golesContra"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="partidosEmpatados" returnType="int" visibility="public"/>
+        <Method name="llenaEquipo" returnType="String" visibility="public">
+          <Argument type="Jugador" name="jugador"/>
+        </Method>
+        <Method name="puntosObtenidos" returnType="int" visibility="public"/>
+        <Method name="categoriaEquipo" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCodigoEquipo" returnType="String" visibility="public"/>
+        <Method name="setCodigoEquipo" returnType="void" visibility="public">
+          <Argument type="String" name="codigoEquipo"/>
+        </Method>
+        <Method name="getPartidosJugados" returnType="int" visibility="public"/>
+        <Method name="setPartidosJugados" returnType="void" visibility="public">
+          <Argument type="int" name="partidosJugados"/>
+        </Method>
+        <Method name="getPartidosGanados" returnType="int" visibility="public"/>
+        <Method name="setPartidosGanados" returnType="void" visibility="public">
+          <Argument type="int" name="partidosGanados"/>
+        </Method>
+        <Method name="getPartidosPerdidos" returnType="int" visibility="public"/>
+        <Method name="setPartidosPerdidos" returnType="void" visibility="public">
+          <Argument type="int" name="partidosPerdidos"/>
+        </Method>
+        <Method name="getGolesFavor" returnType="int" visibility="public"/>
+        <Method name="setGolesFavor" returnType="void" visibility="public">
+          <Argument type="int" name="golesFavor"/>
+        </Method>
+        <Method name="getGolesContra" returnType="int" visibility="public"/>
+        <Method name="setGolesContra" returnType="void" visibility="public">
+          <Argument type="int" name="golesContra"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Jugador" package="CapaLogica" visibility="public" xPosition="107.0" yPosition="-36.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="salarioBase" type="int" visibility="private"/>
+        <Field name="porcentajeMotivacional" type="float" visibility="private"/>
+        <Field name="pocision" type="Posicion" visibility="private"/>
+        <Field name="equipo" type="Equipo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="salarioBase"/>
+          <Argument type="float" name="porcentajeMotivacional"/>
+          <Argument type="Posicion" name="pocision"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculoSalarioTotal" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getSalarioBase" returnType="int" visibility="public"/>
+        <Method name="setSalarioBase" returnType="void" visibility="public">
+          <Argument type="int" name="salarioBase"/>
+        </Method>
+        <Method name="getPorcentajeMotivacional" returnType="float" visibility="public"/>
+        <Method name="setPorcentajeMotivacional" returnType="void" visibility="public">
+          <Argument type="float" name="porcentajeMotivacional"/>
+        </Method>
+        <Method name="getPocision" returnType="Posicion" visibility="public"/>
+        <Method name="setPocision" returnType="void" visibility="public">
+          <Argument type="Posicion" name="pocision"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Nacionalidad" package="CapaLogica" visibility="public" xPosition="757.0" yPosition="450.0">
+      <Literals>
+        <Literal name="Nacional"/>
+        <Literal name="Extranjero"/>
+      </Literals>
+    </Enum>
+    <Enum name="Posicion" package="CapaLogica" visibility="public" xPosition="757.0" yPosition="124.0">
+      <Literals>
+        <Literal name="Portero"/>
+        <Literal name="Defensa"/>
+        <Literal name="Volante"/>
+        <Literal name="Delantero"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="nacionalidad" source="CapaLogica.Entrenador" target="CapaLogica.Nacionalidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pocision" source="CapaLogica.Jugador" target="CapaLogica.Posicion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="equipo" source="CapaLogica.Entrenador" target="CapaLogica.Equipo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CapaLogica.Entrenador" target="CapaLogica.Nacionalidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="entrenador" source="CapaLogica.Equipo" target="CapaLogica.Entrenador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="array" source="CapaLogica.Equipo" target="CapaLogica.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
+    <HasRelation name="equipo" source="CapaLogica.Jugador" target="CapaLogica.Equipo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CapaLogica.Equipo" target="CapaLogica.Jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CapaLogica.Jugador" target="CapaLogica.Posicion" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

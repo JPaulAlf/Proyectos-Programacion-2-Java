@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Decimal" package="capaLogica" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="num1" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="num1"/>
+          <Argument type="double" name="num2"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="sumar" returnType="double" visibility="public"/>
+        <Method name="restar" returnType="double" visibility="public"/>
+        <Method name="multiplicar" returnType="double" visibility="public"/>
+        <Method name="dividir" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNum1" returnType="double" visibility="public"/>
+        <Method name="getNum2" returnType="double" visibility="public"/>
+        <Method name="setNum1" returnType="void" visibility="public">
+          <Argument type="double" name="num1"/>
+        </Method>
+        <Method name="setNum2" returnType="void" visibility="public">
+          <Argument type="double" name="num2"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Fraccion" package="capaLogica" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="num1" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="num1"/>
+          <Argument type="int" name="den1"/>
+          <Argument type="int" name="num2"/>
+          <Argument type="int" name="den2"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="sumar" returnType="double" visibility="public"/>
+        <Method name="restar" returnType="double" visibility="public"/>
+        <Method name="multiplicar" returnType="double" visibility="public"/>
+        <Method name="dividir" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNum1" returnType="int" visibility="public"/>
+        <Method name="getDen1" returnType="int" visibility="public"/>
+        <Method name="getNum2" returnType="int" visibility="public"/>
+        <Method name="getDen2" returnType="int" visibility="public"/>
+        <Method name="setNum1" returnType="void" visibility="public">
+          <Argument type="int" name="num1"/>
+        </Method>
+        <Method name="setDen1" returnType="void" visibility="public">
+          <Argument type="int" name="den1"/>
+        </Method>
+        <Method name="setNum2" returnType="void" visibility="public">
+          <Argument type="int" name="num2"/>
+        </Method>
+        <Method name="setDen2" returnType="void" visibility="public">
+          <Argument type="int" name="den2"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="IOperacion" package="capaLogica" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Methods>
+        <Method name="sumar" returnType="double" visibility="public"/>
+        <Method name="restar" returnType="double" visibility="public"/>
+        <Method name="multiplicar" returnType="double" visibility="public"/>
+        <Method name="dividir" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Radical" package="capaLogica" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="radical1" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="radical1"/>
+          <Argument type="int" name="radical2"/>
+          <Argument type="int" name="indice1"/>
+          <Argument type="int" name="indice2"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="sumar" returnType="double" visibility="public"/>
+        <Method name="restar" returnType="double" visibility="public"/>
+        <Method name="multiplicar" returnType="double" visibility="public"/>
+        <Method name="dividir" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getRadical1" returnType="int" visibility="public"/>
+        <Method name="getRadical2" returnType="int" visibility="public"/>
+        <Method name="getIndice1" returnType="int" visibility="public"/>
+        <Method name="getIndice2" returnType="int" visibility="public"/>
+        <Method name="setRadical1" returnType="void" visibility="public">
+          <Argument type="int" name="radical1"/>
+        </Method>
+        <Method name="setRadical2" returnType="void" visibility="public">
+          <Argument type="int" name="radical2"/>
+        </Method>
+        <Method name="setIndice1" returnType="void" visibility="public">
+          <Argument type="int" name="indice1"/>
+        </Method>
+        <Method name="setIndice2" returnType="void" visibility="public">
+          <Argument type="int" name="indice2"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaLogica.Radical" target="capaLogica.IOperacion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaLogica.Decimal" target="capaLogica.IOperacion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaLogica.Fraccion" target="capaLogica.IOperacion"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

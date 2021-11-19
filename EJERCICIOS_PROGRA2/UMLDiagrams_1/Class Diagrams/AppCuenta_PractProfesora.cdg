@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="appcuenta" visibility="public" xPosition="176.0" yPosition="105.0">
+      <Fields>
+        <Field name="cedula" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="nacionalidad" type="Nacionalidad" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cedula"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="Nacionalidad" name="nacionalidad"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="cedula"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCedula" returnType="String" visibility="public"/>
+        <Method name="setCedula" returnType="void" visibility="public">
+          <Argument type="String" name="cedula"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getNacionalidad" returnType="Nacionalidad" visibility="public"/>
+        <Method name="setNacionalidad" returnType="void" visibility="public">
+          <Argument type="Nacionalidad" name="nacionalidad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cuenta" package="appcuenta" visibility="public" xPosition="29.0" yPosition="20.0">
+      <Fields>
+        <Field name="contCuentas" type="int" visibility="private" isStatic="true"/>
+        <Field name="numeroCuenta" type="int" visibility="private"/>
+        <Field name="saldo" type="double" visibility="private"/>
+        <Field name="moneda" type="Moneda" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="saldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="depositar" returnType="String" visibility="public">
+          <Argument type="double" name="montoDeposito"/>
+        </Method>
+        <Method name="retirar" returnType="String" visibility="public">
+          <Argument type="double" name="montoRetiro"/>
+        </Method>
+        <Method name="calculaInteres" returnType="double" visibility="public"/>
+        <Method name="calculaCambio" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setSaldo" returnType="void" visibility="public">
+          <Argument type="double" name="saldo"/>
+        </Method>
+        <Method name="getSaldo" returnType="double" visibility="public"/>
+        <Method name="getMoneda" returnType="Moneda" visibility="public"/>
+        <Method name="setMoneda" returnType="void" visibility="public">
+          <Argument type="Moneda" name="moneda"/>
+        </Method>
+        <Method name="getCliente" returnType="Cliente" visibility="public"/>
+        <Method name="setCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FrmCreacionCuentas" package="appcuenta" visibility="public" xPosition="370.0" yPosition="-276.0">
+      <Fields>
+        <Field name="jBtnCrearCuenta" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jCboMoneda" type="javax.swing.JComboBox&lt;Moneda&gt;" visibility="private"/>
+        <Field name="jCbpNacionalidad" type="javax.swing.JComboBox&lt;Nacionalidad&gt;" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jTxaInformacionCuenta" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="jTxtCedula" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTxtMontoInicial" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTxtNombreCliente" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jBtnCrearCuentaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="formWindowOpened" returnType="void" visibility="private">
+          <Argument type="java.awt.event.WindowEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Nacionalidad" package="appcuenta" visibility="public" xPosition="475.0" yPosition="231.0">
+      <Fields>
+        <Field name="codigoPais" type="int" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="codigoPais"/>
+          <Argument type="String" name="descripcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setCodigoPais" returnType="void" visibility="public">
+          <Argument type="int" name="codigoPais"/>
+        </Method>
+        <Method name="getCodigoPais" returnType="int" visibility="public"/>
+        <Method name="setDescripcion" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+        </Method>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PrincipalCuenta" package="appcuenta" visibility="public" xPosition="902.0" yPosition="113.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="Moneda" package="appcuenta" visibility="public" xPosition="468.0" yPosition="20.0">
+      <Literals>
+        <Literal name="Colones"/>
+        <Literal name="Dólares"/>
+        <Literal name="Euros"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="jCbpNacionalidad" source="appcuenta.FrmCreacionCuentas" target="appcuenta.Nacionalidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="appcuenta.Cliente" target="appcuenta.Nacionalidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jCboMoneda" source="appcuenta.FrmCreacionCuentas" target="appcuenta.Moneda" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="appcuenta.Cuenta" target="appcuenta.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cliente" source="appcuenta.Cuenta" target="appcuenta.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="moneda" source="appcuenta.Cuenta" target="appcuenta.Moneda" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="appcuenta.Cuenta" target="appcuenta.Moneda" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="nacionalidad" source="appcuenta.Cliente" target="appcuenta.Nacionalidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

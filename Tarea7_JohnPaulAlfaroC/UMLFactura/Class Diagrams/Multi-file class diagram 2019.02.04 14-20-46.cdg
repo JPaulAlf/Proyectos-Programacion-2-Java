@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Producto" package="entidades" visibility="public" xPosition="420.0" yPosition="503.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="precioBasico" type="double" visibility="private"/>
+        <Field name="tipo" type="TipoProducto" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="precioBasico"/>
+          <Argument type="TipoProducto" name="tipo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculaPrecioAdicional" returnType="double" visibility="public"/>
+        <Method name="calculaPrecioTotalProducto" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="display" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getPrecioBasico" returnType="double" visibility="public"/>
+        <Method name="setPrecioBasico" returnType="void" visibility="public">
+          <Argument type="double" name="precioBasico"/>
+        </Method>
+        <Method name="getTipo" returnType="TipoProducto" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="TipoProducto" name="tipo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Factura" package="entidades" visibility="public" xPosition="420.0" yPosition="108.0">
+      <Fields>
+        <Field name="arrayLineaDetalle" type="List&lt;LineaDetalle&gt;" visibility="private"/>
+        <Field name="contFactura" type="int" visibility="private" isStatic="true"/>
+        <Field name="numeroFactura" type="int" visibility="private"/>
+        <Field name="tipoFactura" type="TipoFactura" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="TipoFactura" name="tipoFactura"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarLineaDetalle" returnType="void" visibility="public">
+          <Argument type="Producto" name="prod"/>
+          <Argument type="int" name="cant"/>
+        </Method>
+        <Method name="calcularDescuento" returnType="double" visibility="public"/>
+        <Method name="calcularImpuesto" returnType="double" visibility="public"/>
+        <Method name="calcularSubTotal" returnType="double" visibility="public"/>
+        <Method name="calcularTotalFactura" returnType="double" visibility="public"/>
+        <Method name="getNumeroFactura" returnType="int" visibility="public"/>
+        <Method name="getTipoFactura" returnType="TipoFactura" visibility="public"/>
+        <Method name="setTipoFactura" returnType="void" visibility="public">
+          <Argument type="TipoFactura" name="tipoFactura"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LineaDetalle" package="entidades" visibility="public" xPosition="24.0" yPosition="503.0">
+      <Fields>
+        <Field name="cantidad" type="int" visibility="private"/>
+        <Field name="producto" type="Producto" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="cantidad"/>
+          <Argument type="Producto" name="producto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCantidad" returnType="int" visibility="public"/>
+        <Method name="setCantidad" returnType="void" visibility="public">
+          <Argument type="int" name="cantidad"/>
+        </Method>
+        <Method name="getProducto" returnType="Producto" visibility="public"/>
+        <Method name="setProducto" returnType="void" visibility="public">
+          <Argument type="Producto" name="producto"/>
+        </Method>
+        <Method name="costoLinea" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sucursal" package="entidades" visibility="public" xPosition="8.0" yPosition="51.0">
+      <Fields>
+        <Field name="arrayFacturas" type="List&lt;Factura&gt;" visibility="private"/>
+        <Field name="codigo" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="codigo"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarFactura" returnType="void" visibility="public">
+          <Argument type="Factura" name="miFactura"/>
+        </Method>
+        <Method name="mayorFactura" returnType="double" visibility="public"/>
+        <Method name="getArrayFacturas" returnType="List&lt;Factura&gt;" visibility="public"/>
+        <Method name="setArrayFacturas" returnType="void" visibility="public">
+          <Argument type="List&lt;Factura&gt;" name="arrayFacturas"/>
+        </Method>
+        <Method name="getCodigo" returnType="int" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="int" name="codigo"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="display" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="TipoFactura" package="entidades" visibility="public" xPosition="846.0" yPosition="151.0">
+      <Literals>
+        <Literal name="CONTADO"/>
+        <Literal name="CREDITO"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoProducto" package="entidades" visibility="public" xPosition="900.0" yPosition="560.0">
+      <Literals>
+        <Literal name="NACIONAL"/>
+        <Literal name="IMPORTADO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="arrayLineaDetalle" source="entidades.Factura" target="entidades.LineaDetalle" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="producto" source="entidades.LineaDetalle" target="entidades.Producto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arrayFacturas" source="entidades.Sucursal" target="entidades.Factura" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Factura&gt;"/>
+    <HasRelation name="tipo" source="entidades.Producto" target="entidades.TipoProducto" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tipoFactura" source="entidades.Factura" target="entidades.TipoFactura" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

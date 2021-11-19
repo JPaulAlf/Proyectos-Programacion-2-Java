@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Compra" package="capaLogica" visibility="public" xPosition="36.0" yPosition="20.0">
+      <Fields>
+        <Field name="cantCompras" type="int" visibility="private" isStatic="true"/>
+        <Field name="numeroCompra" type="int" visibility="private"/>
+        <Field name="arrayHelados" type="ArrayList&lt;Helado&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarHelado" returnType="void" visibility="public">
+          <Argument type="Helado" name="helado"/>
+        </Method>
+        <Method name="totalOrden" returnType="double" visibility="public"/>
+        <Method name="totalPagadoChocoMacadamia" returnType="double" visibility="public"/>
+        <Method name="cantidadNievesParaLLevar" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNumeroCompra" returnType="int" visibility="public"/>
+        <Method name="setNumeroCompra" returnType="void" visibility="public">
+          <Argument type="int" name="numeroCompra"/>
+        </Method>
+        <Method name="getArrayPlatos" returnType="ArrayList" visibility="public"/>
+        <Method name="setArrayHelados" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Helado&gt;" name="helados"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Helado" package="capaLogica" visibility="public" xPosition="433.0" yPosition="37.0">
+      <Fields>
+        <Field name="arrayToppings" type="ArrayList&lt;Topping&gt;" visibility="private"/>
+        <Field name="PRECIO" type="double" visibility="protected"/>
+        <Field name="azucarado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="azucarado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarTopping" returnType="void" visibility="public">
+          <Argument type="Topping" name="topping"/>
+        </Method>
+        <Method name="adicionalAzucarado" returnType="double" visibility="public"/>
+        <Method name="precioInicialHelado" returnType="double" visibility="public"/>
+        <Method name="totalToppings" returnType="double" visibility="public"/>
+        <Method name="precioTotalHelado" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setArrayToppings" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Topping&gt;" name="arregloExtras"/>
+        </Method>
+        <Method name="getArregloExtras" returnType="ArrayList" visibility="public"/>
+        <Method name="setAzucarado" returnType="void" visibility="public">
+          <Argument type="boolean" name="azucarado"/>
+        </Method>
+        <Method name="getParaLlevar" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Nieve" package="capaLogica" visibility="public" xPosition="280.0" yPosition="351.0">
+      <Fields>
+        <Field name="sabor" type="SaborNieve" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="paraLlevar"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="precioInicialHelado" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getSabor" returnType="SaborNieve" visibility="public"/>
+        <Method name="setSabor" returnType="void" visibility="public">
+          <Argument type="SaborNieve" name="sabor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Regular" package="capaLogica" visibility="public" xPosition="593.0" yPosition="351.0">
+      <Fields>
+        <Field name="sabor" type="SaborRegular" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="paraLlevar"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="precioInicialHelado" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getSabor" returnType="SaborRegular" visibility="public"/>
+        <Method name="setSabor" returnType="void" visibility="public">
+          <Argument type="SaborRegular" name="sabor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="SaborNieve" package="capaLogica" visibility="public" xPosition="47.0" yPosition="325.0">
+      <Literals>
+        <Literal name="Limon"/>
+        <Literal name="Mora"/>
+        <Literal name="Guanabana"/>
+        <Literal name="Mango"/>
+        <Literal name="Cas"/>
+      </Literals>
+    </Enum>
+    <Enum name="SaborRegular" package="capaLogica" visibility="public" xPosition="896.0" yPosition="290.0">
+      <Literals>
+        <Literal name="Vainilla"/>
+        <Literal name="ChocoAlmendras"/>
+        <Literal name="Fresa"/>
+        <Literal name="ChocoMacadamia"/>
+      </Literals>
+    </Enum>
+    <Enum name="Topping" package="capaLogica" visibility="public" xPosition="856.0" yPosition="62.0">
+      <Literals>
+        <Literal name="Almendra"/>
+        <Literal name="Confites"/>
+        <Literal name="Chocolates"/>
+        <Literal name="Barquillos"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="capaLogica.Nieve" target="capaLogica.Helado"/>
+    <HasRelation name="saborRegular" source="capaLogica.Regular" target="capaLogica.SaborRegular" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="arrayHelados" source="capaLogica.Compra" target="capaLogica.Helado" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Helado&gt;"/>
+    <IsRelation name="is" source="capaLogica.Regular" target="capaLogica.Helado"/>
+    <HasRelation name="sabor" source="capaLogica.Nieve" target="capaLogica.SaborNieve" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="arrayToppings" source="capaLogica.Helado" target="capaLogica.Topping" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Topping&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

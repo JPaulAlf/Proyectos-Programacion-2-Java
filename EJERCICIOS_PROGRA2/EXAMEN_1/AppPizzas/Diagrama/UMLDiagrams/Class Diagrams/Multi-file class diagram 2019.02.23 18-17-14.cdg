@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Orden" package="capaLogica" visibility="public" xPosition="11.0" yPosition="20.0">
+      <Fields>
+        <Field name="cantOrdenes" type="int" visibility="private" isStatic="true"/>
+        <Field name="numeroOrden" type="int" visibility="private"/>
+        <Field name="arrayPlatos" type="ArrayList&lt;PlatoItaliano&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarPlato" returnType="PlatoItaliano" visibility="public">
+          <Argument type="PlatoItaliano" name="plato"/>
+        </Method>
+        <Method name="totalOrden" returnType="double" visibility="public"/>
+        <Method name="totalPagadoLasagnas" returnType="double" visibility="public"/>
+        <Method name="cantidadPizzasParaLLevar" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNumeroOrden" returnType="int" visibility="public"/>
+        <Method name="setNumeroOrden" returnType="int" visibility="public">
+          <Argument type="int" name="numeroOrden"/>
+        </Method>
+        <Method name="getArrayPlatos" returnType="ArrayList" visibility="public"/>
+        <Method name="setArrayPlatos" returnType="ArrayList&lt;PlatoItaliano&gt;" visibility="public">
+          <Argument type="ArrayList&lt;PlatoItaliano&gt;" name="helados"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pasta" package="capaLogica" visibility="public" xPosition="234.0" yPosition="330.0">
+      <Fields>
+        <Field name="tipoPasta" type="TipoPasta" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="paraLlevar"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="precioInicialPlato" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getTipoPasta" returnType="TipoPasta" visibility="public"/>
+        <Method name="setTipoPasta" returnType="TipoPasta" visibility="public">
+          <Argument type="TipoPasta" name="tipoPasta"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pizza" package="capaLogica" visibility="public" xPosition="449.0" yPosition="330.0">
+      <Fields>
+        <Field name="tipoPizza" type="TipoPizza " visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="paraLlevar"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="precioInicialPlato" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getTipoPizza" returnType="TipoPizza " visibility="public"/>
+        <Method name="setTipoPasta" returnType="TipoPizza " visibility="public">
+          <Argument type="TipoPizza" name="tipoPizza"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PlatoItaliano" package="capaLogica" visibility="public" xPosition="334.0" yPosition="20.0">
+      <Fields>
+        <Field name="arrayExtras" type="ArrayList&lt;Extra&gt;" visibility="private"/>
+        <Field name="PRECIO" type="double" visibility="protected"/>
+        <Field name="paraLlevar" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="paraLlevar"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarExtras" returnType="void" visibility="public">
+          <Argument type="Extra" name="miExtra"/>
+        </Method>
+        <Method name="adicionalLlevar" returnType="int" visibility="public"/>
+        <Method name="precioInicialPlato" returnType="double" visibility="public"/>
+        <Method name="totalExtras" returnType="double" visibility="public"/>
+        <Method name="precioTotalPlato" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setArrayExtras" returnType="ArrayList&lt;Extra&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Extra&gt;" name="arregloExtras"/>
+        </Method>
+        <Method name="getArregloExtras" returnType="ArrayList" visibility="public"/>
+        <Method name="setParaLlevar" returnType="boolean" visibility="public">
+          <Argument type="boolean" name="paraLlevar"/>
+        </Method>
+        <Method name="getParaLlevar" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Extra" package="capaLogica" visibility="public" xPosition="686.0" yPosition="20.0">
+      <Literals>
+        <Literal name="Hongos"/>
+        <Literal name="Cebolla"/>
+        <Literal name="Aceitunas"/>
+        <Literal name="Jamon"/>
+        <Literal name="Queso"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoPasta" package="capaLogica" visibility="public" xPosition="11.0" yPosition="284.0">
+      <Literals>
+        <Literal name="Spaguetti"/>
+        <Literal name="Fetuchini"/>
+        <Literal name="Lasagna"/>
+        <Literal name="Canelon"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipoPizza " package="capaLogica" visibility="public" xPosition="686.0" yPosition="270.0">
+      <Literals>
+        <Literal name="Gruesa"/>
+        <Literal name="Regular"/>
+        <Literal name="Delgada"/>
+        <Literal name="Siciliana"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="arrayExtras" source="capaLogica.PlatoItaliano" target="capaLogica.Extra" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Extra&gt;"/>
+    <IsRelation name="is" source="capaLogica.Pasta" target="capaLogica.PlatoItaliano"/>
+    <HasRelation name="tipoPizza" source="capaLogica.Pizza" target="capaLogica.TipoPizza " type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tipoPasta" source="capaLogica.Pasta" target="capaLogica.TipoPasta" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="capaLogica.Pizza" target="capaLogica.PlatoItaliano"/>
+    <HasRelation name="arrayPlatos" source="capaLogica.Orden" target="capaLogica.PlatoItaliano" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Animal" package="capaEntidad" visibility="public" isAbstract="true" xPosition="346.0" yPosition="245.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ballena" package="capaEntidad" visibility="public" xPosition="329.0" yPosition="519.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="formaTraslacion" returnType="String" visibility="public"/>
+        <Method name="sonido" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Humano" package="capaEntidad" visibility="public" xPosition="38.0" yPosition="227.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="genero" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="genero"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="formaTraslacion" returnType="String" visibility="public"/>
+        <Method name="sonido" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getGenero" returnType="String" visibility="public"/>
+        <Method name="setGenero" returnType="void" visibility="public">
+          <Argument type="String" name="genero"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Perro" package="capaEntidad" visibility="public" xPosition="523.0" yPosition="499.0">
+      <Fields>
+        <Field name="caracteristica" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="caracteristica"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="formaTraslacion" returnType="String" visibility="public"/>
+        <Method name="sonido" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCaracteristica" returnType="String" visibility="public"/>
+        <Method name="setCaracteristica" returnType="void" visibility="public">
+          <Argument type="String" name="caracteristica"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Planta" package="capaEntidad" visibility="public" xPosition="687.0" yPosition="168.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="formaTraslacion" returnType="String" visibility="public"/>
+        <Method name="sonido" returnType="String" visibility="public"/>
+        <Method name="formaProducirAlimento" returnType="String" visibility="public"/>
+        <Method name="listaComponentesAlimento" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="ISerProductor" package="capaEntidad" visibility="public" xPosition="671.0" yPosition="20.0">
+      <Methods>
+        <Method name="formaProducirAlimento" returnType="String" visibility="public"/>
+        <Method name="listaComponentesAlimento" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ISerVivo" package="capaEntidad" visibility="public" xPosition="243.0" yPosition="20.0">
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="formaTraslacion" returnType="String" visibility="public"/>
+        <Method name="sonido" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaEntidad.Humano" target="capaEntidad.ISerVivo"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaEntidad.Planta" target="capaEntidad.ISerProductor"/>
+    <IsRelation name="is" source="capaEntidad.Ballena" target="capaEntidad.Animal"/>
+    <IsRelation name="is" source="capaEntidad.Perro" target="capaEntidad.Animal"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaEntidad.Animal" target="capaEntidad.ISerVivo"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="capaEntidad.Planta" target="capaEntidad.ISerVivo"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

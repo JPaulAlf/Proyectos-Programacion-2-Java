@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Llamada" package="capaLogica" visibility="public" xPosition="468.0" yPosition="20.0">
+      <Fields>
+        <Field name="contLlamadas" type="int" visibility="private" isStatic="true"/>
+        <Field name="numeroLlamada" type="int" visibility="private"/>
+        <Field name="minutos" type="int" visibility="private"/>
+        <Field name="kolbi" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="minutos"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="costoLlamada" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setNumeroLlamada" returnType="void" visibility="public">
+          <Argument type="int" name="numeroLlamada"/>
+        </Method>
+        <Method name="getNumeroLlamada" returnType="int" visibility="public"/>
+        <Method name="setMinutos" returnType="void" visibility="public">
+          <Argument type="int" name="minutos"/>
+        </Method>
+        <Method name="getMinutos" returnType="int" visibility="public"/>
+        <Method name="isKolbi" returnType="boolean" visibility="public"/>
+        <Method name="setKolbi" returnType="void" visibility="public">
+          <Argument type="boolean" name="kolbi"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="LlamadaInternacional" package="capaLogica" visibility="public" xPosition="283.0" yPosition="411.0">
+      <Fields>
+        <Field name="zona" type="Zona" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="minutos"/>
+          <Argument type="Zona" name="zona"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="costoLlamada" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setZona" returnType="void" visibility="public">
+          <Argument type="Zona" name="zona"/>
+        </Method>
+        <Method name="getZona" returnType="Zona" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LlamadaNacional" package="capaLogica" visibility="public" xPosition="606.0" yPosition="411.0">
+      <Fields>
+        <Field name="horaLlamada" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="minutos"/>
+          <Argument type="int" name="horaLlamada"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="costoLlamada" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ReciboTelefonico" package="capaLogica" visibility="public" xPosition="50.0" yPosition="33.0">
+      <Fields>
+        <Field name="numeroAbonado" type="String" visibility="private"/>
+        <Field name="comercial" type="boolean" visibility="private"/>
+        <Field name="arrayLlamadas" type="ArrayList&lt;Llamada&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="numeroAbonado"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarLlamadas" returnType="void" visibility="public">
+          <Argument type="Llamada" name="miLlamada"/>
+        </Method>
+        <Method name="costoTotalLlamadas" returnType="double" visibility="public"/>
+        <Method name="adicionalComercio" returnType="double" visibility="public"/>
+        <Method name="costoTotalRecibo" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setNumeroAbonado" returnType="void" visibility="public">
+          <Argument type="String" name="numeroAbonado"/>
+        </Method>
+        <Method name="getNumeroAbonado" returnType="String" visibility="public"/>
+        <Method name="setComercial" returnType="void" visibility="public">
+          <Argument type="boolean" name="esComercial"/>
+        </Method>
+        <Method name="isComercial" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Zona" package="capaLogica" visibility="public" xPosition="74.0" yPosition="411.0">
+      <Literals>
+        <Literal name="Centro_America"/>
+        <Literal name="Norte_America"/>
+        <Literal name="Sur_America"/>
+        <Literal name="Europa"/>
+        <Literal name="Asia"/>
+        <Literal name="Resto_Del_Mundo"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="capaLogica.LlamadaInternacional" target="capaLogica.Llamada"/>
+    <IsRelation name="is" source="capaLogica.LlamadaNacional" target="capaLogica.Llamada"/>
+    <HasRelation name="zona" source="capaLogica.LlamadaInternacional" target="capaLogica.Zona" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arrayLlamadas" source="capaLogica.ReciboTelefonico" target="capaLogica.Llamada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Llamada&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

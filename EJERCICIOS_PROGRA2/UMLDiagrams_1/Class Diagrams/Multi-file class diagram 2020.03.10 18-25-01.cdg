@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="ContenidoAudioVisual" package="Capa_Logica_Negocios" visibility="public" isAbstract="true" xPosition="355.0" yPosition="-108.0">
+      <Fields>
+        <Field name="codigo" type="String" visibility="protected"/>
+        <Field name="titulo" type="String" visibility="protected"/>
+        <Field name="annoCreacion" type="LocalDateTime" visibility="protected"/>
+        <Field name="esOriginal" type="boolean" visibility="protected"/>
+        <Field name="idiomasDisponibles" type="ArrayList&lt;TIPOS_IDIOMAS&gt;" visibility="protected"/>
+        <Field name="cantDescargas" type="int" visibility="protected" isStatic="true"/>
+        <Field name="puntajeObtenido" type="int" visibility="protected"/>
+        <Field name="genero" type="TIPO_GENERO" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="titulo"/>
+          <Argument type="LocalDateTime" name="annoCreacion"/>
+          <Argument type="int" name="puntajeObtenido"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodigo" returnType="String" visibility="public"/>
+        <Method name="setCodigo" returnType="void" visibility="public">
+          <Argument type="String" name="codigo"/>
+        </Method>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="setTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="getCantDescargas" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="setCantDescargas" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="cantDescargas"/>
+        </Method>
+        <Method name="getPuntajeObtenido" returnType="int" visibility="public"/>
+        <Method name="setPuntajeObtenido" returnType="void" visibility="public">
+          <Argument type="int" name="puntajeObtenido"/>
+        </Method>
+        <Method name="getGenero" returnType="TIPO_GENERO" visibility="public"/>
+        <Method name="setGenero" returnType="void" visibility="public">
+          <Argument type="TIPO_GENERO" name="genero"/>
+        </Method>
+        <Method name="getAnnoCreacion" returnType="LocalDateTime" visibility="public"/>
+        <Method name="setAnnoCreacion" returnType="void" visibility="public">
+          <Argument type="LocalDateTime" name="annoCreacion"/>
+        </Method>
+        <Method name="contDescargaActualizacion" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="precioBase" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="cargoXDescarga" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="agregarIdioma" returnType="void" visibility="public">
+          <Argument type="TIPOS_IDIOMAS" name="idioma"/>
+        </Method>
+        <Method name="puntajeObtenido" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ContenidoPelicula" package="Capa_Logica_Negocios" visibility="public" xPosition="-149.0" yPosition="332.0">
+      <Fields>
+        <Field name="ganadoPremio" type="boolean" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="ganadoPremio"/>
+          <Argument type="String" name="director"/>
+          <Argument type="boolean" name="esOriginal"/>
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="titulo"/>
+          <Argument type="LocalDateTime" name="annoCreacion"/>
+          <Argument type="int" name="puntajeObtenido"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isGanadoPremio" returnType="boolean" visibility="public"/>
+        <Method name="setGanadoPremio" returnType="void" visibility="public">
+          <Argument type="boolean" name="ganadoPremio"/>
+        </Method>
+        <Method name="getDirector" returnType="String" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="String" name="director"/>
+        </Method>
+        <Method name="isEsOriginal" returnType="boolean" visibility="public"/>
+        <Method name="setEsOriginal" returnType="void" visibility="public">
+          <Argument type="boolean" name="esOriginal"/>
+        </Method>
+        <Method name="precioBase" returnType="double" visibility="public"/>
+        <Method name="cargoXDescarga" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ContenidoSerie" package="Capa_Logica_Negocios" visibility="public" xPosition="554.0" yPosition="330.0">
+      <Fields>
+        <Field name="temporadas" type="ArrayList&lt;Temporada&gt;" visibility="private"/>
+        <Field name="esCompleta" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codigo"/>
+          <Argument type="String" name="titulo"/>
+          <Argument type="LocalDateTime" name="annoCreacion"/>
+          <Argument type="int" name="puntajeObtenido"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isEsCompleta" returnType="boolean" visibility="public"/>
+        <Method name="setEsCompleta" returnType="void" visibility="public">
+          <Argument type="boolean" name="esCompleta"/>
+        </Method>
+        <Method name="agregarTemporada" returnType="void" visibility="public">
+          <Argument type="Temporada" name="temporada"/>
+        </Method>
+        <Method name="precioBase" returnType="double" visibility="public"/>
+        <Method name="cargoXDescarga" returnType="double" visibility="public"/>
+        <Method name="descuentoIncompleta" returnType="double" visibility="public"/>
+        <Method name="subTotalPagarDescuento" returnType="double" visibility="public"/>
+        <Method name="totalDescuento" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Descarga" package="Capa_Logica_Negocios" visibility="public" xPosition="780.0" yPosition="-154.0">
+      <Fields>
+        <Field name="numDescarga" type="int" visibility="private" isStatic="true"/>
+        <Field name="fechaDescarga" type="LocalDateTime" visibility="private"/>
+        <Field name="arrayVideo" type="ArrayList&lt;ContenidoAudioVisual&gt;" visibility="private"/>
+        <Field name="usuarioDescarga" type="Usuario" visibility="private"/>
+        <Field name="numDescargaUsuario" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Usuario" name="usuarioDescarga"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumDescarga" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="setNumDescarga" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="numDescarga"/>
+        </Method>
+        <Method name="getFechaDescarga" returnType="LocalDateTime" visibility="public"/>
+        <Method name="setFechaDescarga" returnType="void" visibility="public">
+          <Argument type="LocalDateTime" name="fechaDescarga"/>
+        </Method>
+        <Method name="getUsuarioDescarga" returnType="Usuario" visibility="public"/>
+        <Method name="setUsuarioDescarga" returnType="void" visibility="public">
+          <Argument type="Usuario" name="usuarioDescarga"/>
+        </Method>
+        <Method name="getNumDescargaUsuario" returnType="int" visibility="public"/>
+        <Method name="setNumDescargaUsuario" returnType="void" visibility="public">
+          <Argument type="int" name="numDescargaUsuario"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Temporada" package="Capa_Logica_Negocios" visibility="public" xPosition="625.0" yPosition="686.0">
+      <Fields>
+        <Field name="numTemporada" type="int" visibility="private"/>
+        <Field name="cantCapitulos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numTemporada"/>
+          <Argument type="int" name="cantCapitulos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumTemporada" returnType="int" visibility="public"/>
+        <Method name="setNumTemporada" returnType="void" visibility="public">
+          <Argument type="int" name="numTemporada"/>
+        </Method>
+        <Method name="getCantCapitulos" returnType="int" visibility="public"/>
+        <Method name="setCantCapitulos" returnType="void" visibility="public">
+          <Argument type="int" name="cantCapitulos"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="Capa_Logica_Negocios" visibility="public" xPosition="833.0" yPosition="108.0">
+      <Fields>
+        <Field name="correo" type="String" visibility="protected"/>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="contrasenna" type="String" visibility="protected"/>
+        <Field name="numTarjeta" type="String" visibility="protected"/>
+        <Field name="tipoTarjeta" type="TIPO_TARJETA" visibility="protected"/>
+        <Field name="arrayPerfiles" type="ArrayList&lt;Usuario_Perfil&gt;" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="String" name="tarjeta"/>
+          <Argument type="TIPO_TARJETA" name="tipoTarjeta"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCorreo" returnType="String" visibility="public"/>
+        <Method name="setCorreo" returnType="void" visibility="public">
+          <Argument type="String" name="correo"/>
+        </Method>
+        <Method name="getContrasenna" returnType="String" visibility="public"/>
+        <Method name="setContrasenna" returnType="void" visibility="public">
+          <Argument type="String" name="contrasenna"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsuarioAdministrativo" package="Capa_Logica_Negocios" visibility="public" xPosition="1231.0" yPosition="421.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsuarioCorporativo" package="Capa_Logica_Negocios" visibility="public" xPosition="872.0" yPosition="461.0">
+      <Fields>
+        <Field name="contNumPerfiles" type="int" visibility="private" isStatic="true"/>
+        <Field name="numPerfiles" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="String" name="tarjeta"/>
+          <Argument type="TIPO_TARJETA" name="tipoTarjeta"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumTarjeta" returnType="String" visibility="public"/>
+        <Method name="setNumTarjeta" returnType="void" visibility="public">
+          <Argument type="String" name="numTarjeta"/>
+        </Method>
+        <Method name="getTipoTarjeta" returnType="TIPO_TARJETA" visibility="public"/>
+        <Method name="setTipoTarjeta" returnType="void" visibility="public">
+          <Argument type="TIPO_TARJETA" name="tipoTarjeta"/>
+        </Method>
+        <Method name="getNumPerfiles" returnType="int" visibility="public"/>
+        <Method name="setNumPerfiles" returnType="void" visibility="public">
+          <Argument type="int" name="numPerfiles"/>
+        </Method>
+        <Method name="agregarPerfil" returnType="boolean" visibility="public">
+          <Argument type="Usuario_Perfil" name="perfil"/>
+        </Method>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsuarioResidencial" package="Capa_Logica_Negocios" visibility="public" xPosition="1029.0" yPosition="429.0">
+      <Fields>
+        <Field name="contNumPerfiles" type="int" visibility="private" isStatic="true"/>
+        <Field name="numPerfiles" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="correo"/>
+          <Argument type="String" name="contrasenna"/>
+          <Argument type="String" name="tarjeta"/>
+          <Argument type="TIPO_TARJETA" name="tipoTarjeta"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumTarjeta" returnType="String" visibility="public"/>
+        <Method name="setNumTarjeta" returnType="void" visibility="public">
+          <Argument type="String" name="numTarjeta"/>
+        </Method>
+        <Method name="getTipoTarjeta" returnType="TIPO_TARJETA" visibility="public"/>
+        <Method name="setTipoTarjeta" returnType="void" visibility="public">
+          <Argument type="TIPO_TARJETA" name="tipoTarjeta"/>
+        </Method>
+        <Method name="getNumPerfiles" returnType="int" visibility="public"/>
+        <Method name="setNumPerfiles" returnType="void" visibility="public">
+          <Argument type="int" name="numPerfiles"/>
+        </Method>
+        <Method name="agregarPerfil" returnType="boolean" visibility="public">
+          <Argument type="Usuario_Perfil" name="perfil"/>
+        </Method>
+        <Method name="costoInscripcion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Usuario_Perfil" package="Capa_Logica_Negocios" visibility="public" xPosition="1301.0" yPosition="19.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="TIPOS_IDIOMAS" package="Capa_Logica_Negocios" visibility="public" xPosition="341.0" yPosition="313.0">
+      <Literals>
+        <Literal name="ESPANNOL_LATINOAMERICA"/>
+        <Literal name="ESPANNOL_ESPANNA"/>
+        <Literal name="INGLES"/>
+        <Literal name="FRANCES"/>
+        <Literal name="PORTUGUES"/>
+        <Literal name="CHINO"/>
+        <Literal name="SUBTITULADA_INGLES"/>
+        <Literal name="SUBTITULADA_ESPANNOL"/>
+        <Literal name="COREANO"/>
+      </Literals>
+    </Enum>
+    <Enum name="TIPO_GENERO" package="Capa_Logica_Negocios" visibility="public" xPosition="369.0" yPosition="71.0">
+      <Literals>
+        <Literal name="DRAMA"/>
+        <Literal name="SUSPENSO"/>
+        <Literal name="MISTERIO"/>
+        <Literal name="ACCION"/>
+        <Literal name="TERROR"/>
+        <Literal name="CIENCIA_FICCION"/>
+        <Literal name="COMEDIA"/>
+        <Literal name="ROMATICA"/>
+      </Literals>
+    </Enum>
+    <Enum name="TIPO_TARJETA" package="Capa_Logica_Negocios" visibility="public" xPosition="1495.0" yPosition="212.0">
+      <Literals>
+        <Literal name="VISA"/>
+        <Literal name="MASTER_CARD"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Capa_Logica_Negocios.ContenidoPelicula" target="Capa_Logica_Negocios.ContenidoAudioVisual"/>
+    <IsRelation name="is" source="Capa_Logica_Negocios.ContenidoSerie" target="Capa_Logica_Negocios.ContenidoAudioVisual"/>
+    <HasRelation name="genero" source="Capa_Logica_Negocios.ContenidoAudioVisual" target="Capa_Logica_Negocios.TIPO_GENERO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tipoTarjeta" source="Capa_Logica_Negocios.Usuario" target="Capa_Logica_Negocios.TIPO_TARJETA" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Capa_Logica_Negocios.UsuarioResidencial" target="Capa_Logica_Negocios.Usuario"/>
+    <HasRelation name="arrayPerfiles" source="Capa_Logica_Negocios.Usuario" target="Capa_Logica_Negocios.Usuario_Perfil" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="idiomasDisponibles" source="Capa_Logica_Negocios.ContenidoAudioVisual" target="Capa_Logica_Negocios.TIPOS_IDIOMAS" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="arrayVideo" source="Capa_Logica_Negocios.Descarga" target="Capa_Logica_Negocios.ContenidoAudioVisual" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Capa_Logica_Negocios.UsuarioAdministrativo" target="Capa_Logica_Negocios.Usuario"/>
+    <HasRelation name="usuarioDescarga" source="Capa_Logica_Negocios.Descarga" target="Capa_Logica_Negocios.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="temporadas" source="Capa_Logica_Negocios.ContenidoSerie" target="Capa_Logica_Negocios.Temporada" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Capa_Logica_Negocios.UsuarioCorporativo" target="Capa_Logica_Negocios.Usuario"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

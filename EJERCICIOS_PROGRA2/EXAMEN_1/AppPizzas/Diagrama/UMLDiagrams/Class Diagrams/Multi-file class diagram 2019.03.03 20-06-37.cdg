@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="CapaLogica" visibility="public" isAbstract="true" xPosition="292.0" yPosition="41.0">
+      <Fields>
+        <Field name="contClientes" type="int" visibility="private" isStatic="true"/>
+        <Field name="numeroCliente" type="int" visibility="private"/>
+        <Field name="cedula" type="String" visibility="private"/>
+        <Field name="montoCompra" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cedula"/>
+          <Argument type="double" name="montoCompra"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="totalPagar" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNumeroCliente" returnType="int" visibility="public"/>
+        <Method name="getCedula" returnType="String" visibility="public"/>
+        <Method name="setCedula" returnType="void" visibility="public">
+          <Argument type="String" name="cedula"/>
+        </Method>
+        <Method name="getMontoCompra" returnType="double" visibility="public"/>
+        <Method name="setMontoCompra" returnType="void" visibility="public">
+          <Argument type="double" name="monto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClienteFrecuente" package="CapaLogica" visibility="public" xPosition="73.0" yPosition="310.0">
+      <Fields>
+        <Field name="puntos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cedula"/>
+          <Argument type="double" name="montoCompra"/>
+          <Argument type="int" name="puntos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="totalPagar" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getPuntos" returnType="int" visibility="public"/>
+        <Method name="setPuntos" returnType="void" visibility="public">
+          <Argument type="int" name="puntos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClienteRegular" package="CapaLogica" visibility="public" xPosition="523.0" yPosition="310.0">
+      <Fields>
+        <Field name="tipoPago" type="TipoPago" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cedula"/>
+          <Argument type="double" name="montoCompra"/>
+          <Argument type="TipoPago" name="tipoPago"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="totalPagar" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="setTipoPago" returnType="void" visibility="public">
+          <Argument type="TipoPago" name="tipoPago"/>
+        </Method>
+        <Method name="getTipoPago" returnType="TipoPago" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="TipoPago" package="CapaLogica" visibility="public" xPosition="582.0" yPosition="488.0">
+      <Literals>
+        <Literal name="CONTADO"/>
+        <Literal name="CREDITO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="CapaLogica.ClienteRegular" target="CapaLogica.Cliente"/>
+    <HasRelation name="tipoPago" source="CapaLogica.ClienteRegular" target="CapaLogica.TipoPago" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="CapaLogica.ClienteFrecuente" target="CapaLogica.Cliente"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
